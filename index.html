@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad Keith - AI Innovator for Abnormal AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00aa;
+            --dark: #050505;
+            --light: #f0f0f0;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Particle background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* Liquid metal text effect */
+        .liquid-metal {
+            position: relative;
+            background: linear-gradient(90deg, #00f0ff, #ff00aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: liquid 8s ease-in-out infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes liquid {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* 3D floating cards */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            transform: perspective(5000px) rotateY(0deg) rotateX(0deg);
+            box-shadow: 0 25px 50px rgba(0, 240, 255, 0.2);
+        }
+        
+        .card-3d:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg) translateY(-10px);
+        }
+        
+        /* Progress bars with liquid animation */
+        .progress-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00f0ff, #ff00aa);
+            border-radius: 4px;
+            position: relative;
+            animation: progressWave 2s ease-in-out infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes progressWave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Holographic border effect */
+        .holographic-border {
+            position: relative;
+        }
+        
+        .holographic-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #00f0ff, #ff00aa, #00f0ff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderRotate 6s linear infinite;
+        }
+        
+        @keyframes borderRotate {
+            100% { transform: rotate(1turn); }
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Matrix rain effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        /* Glitch hover effect */
+        .glitch-hover {
+            position: relative;
+        }
+        
+        .glitch-hover:hover::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            text-shadow: 2px 0 #ff00aa;
+            background: var(--dark);
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: noise-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch-hover:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -2px 0 #00f0ff;
+            background: var(--dark);
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: noise-anim-2 2s infinite linear alternate-reverse;
+        }
+        
+        @keyframes noise-anim-1 {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            10% { clip: rect(112px, 9999px, 76px, 0); }
+            20% { clip: rect(85px, 9999px, 77px, 0); }
+            30% { clip: rect(27px, 9999px, 97px, 0); }
+            40% { clip: rect(64px, 9999px, 98px, 0); }
+            50% { clip: rect(61px, 9999px, 85px, 0); }
+            60% { clip: rect(99px, 9999px, 114px, 0); }
+            70% { clip: rect(34px, 9999px, 115px, 0); }
+            80% { clip: rect(98px, 9999px, 129px, 0); }
+            90% { clip: rect(43px, 9999px, 96px, 0); }
+            100% { clip: rect(82px, 9999px, 64px, 0); }
+        }
+        
+        @keyframes noise-anim-2 {
+            0% { clip: rect(65px, 9999px, 119px, 0); }
+            10% { clip: rect(79px, 9999px, 66px, 0); }
+            20% { clip: rect(43px, 9999px, 96px, 0); }
+            30% { clip: rect(38px, 9999px, 8px, 0); }
+            40% { clip: rect(24px, 9999px, 38px, 0); }
+            50% { clip: rect(15px, 9999px, 53px, 0); }
+            60% { clip: rect(61px, 9999px, 85px, 0); }
+            70% { clip: rect(99px, 9999px, 91px, 0); }
+            80% { clip: rect(47px, 9999px, 31px, 0); }
+            90% { clip: rect(82px, 9999px, 60px, 0); }
+            100% { clip: rect(9px, 9999px, 98px, 0); }
+        }
+        
+        /* Navigation underline animation */
+        .nav-underline {
+            position: relative;
+        }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #00f0ff, #ff00aa);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-3d:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle background -->
+    <div id="particles-js"></div>
+    
+    <!-- Matrix rain effect -->
+    <canvas class="matrix-rain" id="matrixRain"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold liquid-metal">
+                    Chad Keith
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-underline text-white hover:text-primary transition">Home</a>
+                    <a href="#about" class="nav-underline text-white hover:text-primary transition">About</a>
+                    <a href="#projects" class="nav-underline text-white hover:text-primary transition">Projects</a>
+                    <a href="#wins" class="nav-underline text-white hover:text-primary transition">Wins</a>
+                    <a href="#why-abnormal" class="nav-underline text-white hover:text-primary transition">Why Abnormal</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 liquid-metal">
+                        Chad Keith
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-light">
+                        AI Product Operations Manager Candidate
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                        Bridging <span class="liquid-metal">AI Innovation</span> and <span class="liquid-metal">Operational Excellence</span> for Abnormal AI.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="mailto:chadpkeith@gmail.com" class="holographic-border font-bold py-3 px-8 rounded-full text-center bg-black text-white hover:text-black hover:bg-gradient-to-r from-primary to-secondary transition-all duration-300">
+                            Contact Me
+                        </a>
+                        <a href="#projects" class="holographic-border font-bold py-3 px-8 rounded-full text-center bg-black text-white hover:text-black hover:bg-gradient-to-r from-primary to-secondary transition-all duration-300">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="card-3d rounded-xl overflow-hidden floating">
+                        <img src="https://i.postimg.cc/HLy7ShkG/00048-1169660265.png" alt="Chad Keith" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center liquid-metal">
+                About Me
+            </h2>
+            <div class="flex flex-col">
+                <div class="mb-8">
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        I'm not your typical tech guy. My journey began on stage as a <span class="liquid-metal">metalcore drummer</span>, touring nationally including being an artist on <span class="liquid-metal">Van's Warped Tour 2007</span>, and even landing music on <span class="liquid-metal">FOX's Bones (s4e20 - pictured below right)</span>
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="card-3d rounded-xl overflow-hidden">
+                            <img src="https://i.postimg.cc/qBZH0sVR/222765-2002302705483-7126914-n.jpg" alt="Chad in Band" class="w-full rounded-lg mb-2">
+                            <p class="text-sm text-gray-400 p-4">(Pictured above: My old band, Jameson, playing a rowdy and sold out show @ Knitting Factory in Boise, ID - Spring 2010)</p>
+                        </div>
+                        <div class="card-3d rounded-xl overflow-hidden">
+                            <img src="https://i.postimg.cc/BvLfjtT3/18359307-10212944238788974-3500636019600044245-o-10212944238788974.jpg" alt="Chad on Bones" class="w-full rounded-lg mb-2">
+                            <p class="text-sm text-gray-400 p-4">(Pictured above: Same band, Jameson, on the set of "Bones" Season 4 Episode 20 on the FOX network - Feb 2008)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Transitioning to business, I cut my teeth as <span class="liquid-metal">VP of Business Operations</span>, where I slashed cancellation rates from 36.6% to 14.1% by implementing data-driven processes. But it was the rise of AI that truly captured my imagination—leading me to teach myself the ropes and build MVPs like <span class="liquid-metal">Convers-A-Trait</span> for personality analysis.
+                    </p>
+                    
+                    <div class="text-lg text-gray-300 leading-relaxed">
+                        <p>Now I'm focused on developing AI tools that push boundaries while maintaining the operational discipline needed to turn prototypes into reliable products. My unique background gives me the creative edge to innovate and the business acumen to execute.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center liquid-metal">
+                AI Projects
+            </h2>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+                Built solo with open/closed-source models and paid/free tools—just as Abnormal values flexibility and innovation.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project 1 -->
+                <a href="http://chchchadzilla.github.io/conversatrait/" target="_blank" class="card-3d rounded-xl overflow-hidden">
+                    <img src="https://i.postimg.cc/76tjpfBc/imcatage-jpg.jpg" alt="Convers-A-Trait" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-light mb-4 glitch-hover" data-text="Convers-A-Trait">Convers-A-Trait</h3>
+                        <p class="text-gray-300 mb-6">
+                            An LLM-powered personality analysis tool that extracts insights from public online data. Features include subscription tiers and a proprietary "Bullshit Detector" to flag inconsistent self-reporting.
+                        </p>
+                        <div class="mb-6">
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <p class="text-right text-sm text-gray-400 mt-1">50% complete - Beta feedback: "Incredible"</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">LLMs</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Personality Analysis</span>
+                            <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Subscription Model</span>
+                        </div>
+                        <div class="holographic-border font-bold py-2 px-6 rounded-full inline-flex items-center justify-center w-full bg-black text-white hover:text-black hover:bg-gradient-to-r from-primary to-secondary transition-all duration-300">
+                            Visit Project <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 2 -->
+                <a href="http://instafams.com" target="_blank" class="card-3d rounded-xl overflow-hidden">
+                    <img src="https://i.postimg.cc/Y9fkMH91/instafams.webp" alt="Instafams" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-light mb-4 glitch-hover" data-text="Instafams">Instafams</h3>
+                        <p class="text-gray-300 mb-6">
+                            A personal history tool with smart API fail-safes via OpenRouter for cost-efficient LLM use. Dynamically switches between models based on query complexity and budget constraints.
+                        </p>
+                        <div class="mb-6">
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                            <p class="text-right text-sm text-gray-400 mt-1">85% complete - Optimized for cost efficiency</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-secondary bg-opacity-20 text-secondary rounded-full text-sm">API Optimization</span>
+                            <span class="px-3 py-1 bg-secondary bg-opacity-20 text-secondary rounded-full text-sm">Cost Control</span>
+                            <span class="px-3 py-1 bg-secondary bg-opacity-20 text-secondary rounded-full text-sm">Multi-LLM</span>
+                        </div>
+                        <div class="holographic-border font-bold py-2 px-6 rounded-full inline-flex items-center justify-center w-full bg-black text-white hover:text-black hover:bg-gradient-to-r from-primary to-secondary transition-all duration-300">
+                            Visit Project <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Operational Wins Section -->
+    <section id="wins" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center liquid-metal">
+                Operational Wins
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Win 1 -->
+                <div class="card-3d rounded-xl p-8">
+                    <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto floating">
+                        <i class="fas fa-users-gear text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light text-center mb-4 glitch-hover" data-text="Leadership">Leadership</h3>
+                    <p class="text-gray-300 text-center">
+                        Oversaw 5 departments as VP, transforming cross-functional chaos into streamlined operations. My ability to align diverse teams directly translates to Abnormal's need for seamless GTM collaboration.
+                    </p>
+                </div>
+                
+                <!-- Win 2 -->
+                <div class="card-3d rounded-xl p-8">
+                    <div class="w-16 h-16 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto floating">
+                        <i class="fas fa-chart-line-down text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light text-center mb-4 glitch-hover" data-text="Impact">Impact</h3>
+                    <p class="text-gray-300 text-center">
+                        Slashed cancellation rates by 60% in 6 months at USDS/NCWC through data-driven process improvements—proof I can optimize Abnormal's customer experience metrics.
+                    </p>
+                </div>
+                
+                <!-- Win 3 -->
+                <div class="card-3d rounded-xl p-8">
+                    <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto floating">
+                        <i class="fas fa-database text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light text-center mb-4 glitch-hover" data-text="Data">Data</h3>
+                    <p class="text-gray-300 text-center">
+                        Built custom dashboards for performance tracking that became company standards. Ready to implement similar visibility tools in Jira/Confluence for Abnormal's product ops.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Abnormal Section -->
+    <section id="why-abnormal" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center liquid-metal">
+                Why I'm The Fit For Abnormal
+            </h2>
+            
+            <div class="card-3d rounded-xl p-10">
+                <div class="flex items-start mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mr-6 flex-shrink-0 floating">
+                        <i class="fas fa-shield-halved text-2xl text-dark"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-300 mb-4">
+                            My <span class="liquid-metal">AI MVPs demonstrate hands-on innovation</span>—exactly the mindset Abnormal needs to stay ahead in cybersecurity. Like Abnormal's adaptive email protection, my projects dynamically respond to inputs (whether analyzing personalities or optimizing API costs).
+                        </p>
+                        <p class="text-lg text-gray-300 mb-4">
+                            My <span class="liquid-metal">operational experience ensures streamlined releases</span>. Having managed complex cross-functional teams, I'll bring discipline to Abnormal's product ops—translating cutting-edge R&D into reliable customer value.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Most importantly, my <span class="liquid-metal">passion for protective tech mirrors Abnormal's mission</span>. From securing inboxes to safeguarding digital identities, I'm committed to AI that defends. I'm ready to drive customer-centric AI ops—let's talk.
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="mailto:chadpkeith@gmail.com" class="holographic-border font-bold py-3 px-8 rounded-full inline-block bg-black text-white hover:text-black hover:bg-gradient-to-r from-primary to-secondary transition-all duration-300">
+                        Let's Disrupt Together <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold liquid-metal">
+                        Chad Keith
+                    </h3>
+                    <p class="text-gray-400 mt-2">AI Product Operations Manager Candidate</p>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://github.com/chchchadzilla" target="_blank" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/chadpkeith" target="_blank" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://x.com/chchchadzilla" target="_blank" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+                <div class="text-gray-500 text-sm">
+                    © 2025 Chad Keith - Built with AI for Abnormal AI
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#00f0ff", "#ff00aa"]
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00f0ff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixRain');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        
+        const alphabet = katakana + latin + nums;
+        
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const rainDrops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+        
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00f0ff';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+        
+        setInterval(draw, 30);
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'hidden absolute top-full left-0 right-0 bg-black bg-opacity-95 py-4 px-6 border-t border-primary border-opacity-20';
+        mobileMenu.innerHTML = `
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-underline text-white hover:text-primary transition">Home</a>
+                <a href="#about" class="nav-underline text-white hover:text-primary transition">About</a>
+                <a href="#projects" class="nav-underline text-white hover:text-primary transition">Projects</a>
+                <a href="#wins" class="nav-underline text-white hover:text-primary transition">Wins</a>
+                <a href="#why-abnormal" class="nav-underline text-white hover:text-primary transition">Why Abnormal</a>
+            </div>
+        `;
+        document.querySelector('nav').appendChild(mobileMenu);
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 3D card tilt effect
+        const cards = document.querySelectorAll('.card-3d');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 55;
+                card.style.transform = `perspective(5000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'none';
+            });
+                        
+            card.addEventListener('mousemove', () => {
+                card.style.transition = 'none';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = 'all 0.5s ease';
+                card.style.transform = 'perspective(3000px) rotateY(0deg) rotateX(0deg)';
+            });
+        });
+        
+        // Resize handlers
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
